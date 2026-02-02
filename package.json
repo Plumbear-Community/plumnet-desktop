@@ -1,0 +1,58 @@
+{
+  "name": "PlumNet",
+  "version": "1.0.1",
+  "description": "PlumNet Desktop Client",
+  "author": "PlumNet Team <support@plumnet.ru>",
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.plumnet.desktop",
+    "productName": "PlumNet",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Plumbear-Community",
+        "repo": "plumnet-desktop"
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{test,__tests__,tests}"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "123123123.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^40.0.0",
+    "electron-builder": "^26.7.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.7.3"
+  }
+}
